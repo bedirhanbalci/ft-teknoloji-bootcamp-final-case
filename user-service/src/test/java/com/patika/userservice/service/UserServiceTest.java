@@ -56,7 +56,7 @@ class UserServiceTest {
 
         testUser = new User();
         testUser.setId(1L);
-        testUser.setEmail("john.doe@example.com");
+        testUser.setEmail("bedirhanbalci@outlook.com");
         testUser.setPassword("encodedPassword");
         testUser.setUserType(UserType.INDIVIDUAL);
 
@@ -71,54 +71,54 @@ class UserServiceTest {
 
     @Test
     void testGetUserByEmailForAuth() {
-        when(userRepository.findByEmail("john.doe@example.com")).thenReturn(Optional.of(testUser));
-        UserVO result = userService.getUserByEmailForAuth("john.doe@example.com");
+        when(userRepository.findByEmail("bedirhanbalci@outlook.com")).thenReturn(Optional.of(testUser));
+        UserVO result = userService.getUserByEmailForAuth("bedirhanbalci@outlook.com");
         assertNotNull(result);
-        assertEquals("john.doe@example.com", result.getEmail());
+        assertEquals("bedirhanbalci@outlook.com", result.getEmail());
     }
 
     @Test
     void testCreateUserForAuth() {
         AuthRegisterRequest request = AuthRegisterRequest.builder()
-                .firstName("John")
-                .lastName("Doe")
-                .email("john.doe@example.com")
+                .firstName("Bedirhan")
+                .lastName("Balcı")
+                .email("bedirhanbalci@outlook.com")
                 .password("password")
                 .userType(UserType.INDIVIDUAL)
                 .build();
 
-        when(userRepository.findByEmail("john.doe@example.com")).thenReturn(Optional.empty());
+        when(userRepository.findByEmail("bedirhanbalci@outlook.com")).thenReturn(Optional.empty());
         when(roleRepository.findByRoleName(RoleType.USER)).thenReturn(Optional.of(userRole));
         when(passwordEncoder.encode("password")).thenReturn("encodedPassword");
 
         UserVO result = userService.createUserForAuth(request);
         assertNotNull(result);
-        assertEquals("john.doe@example.com", result.getEmail());
+        assertEquals("bedirhanbalci@outlook.com", result.getEmail());
         verify(rabbitMqProducer).sendNotification(any(NotificationRequest.class));
     }
 
     @Test
     void testValidateUserForAuth() {
         AuthLoginRequest request = AuthLoginRequest.builder()
-                .email("john.doe@example.com")
+                .email("bedirhanbalci@outlook.com")
                 .password("password")
                 .build();
 
-        when(userRepository.findByEmail("john.doe@example.com")).thenReturn(Optional.of(testUser));
+        when(userRepository.findByEmail("bedirhanbalci@outlook.com")).thenReturn(Optional.of(testUser));
         when(passwordEncoder.matches("password", "encodedPassword")).thenReturn(true);
 
         UserVO result = userService.validateUserForAuth(request);
         assertNotNull(result);
-        assertEquals("john.doe@example.com", result.getEmail());
+        assertEquals("bedirhanbalci@outlook.com", result.getEmail());
     }
 
     @Test
     void testUpdateUser() {
         UserRequest request = UserRequest.builder()
                 .id(1L)
-                .firstName("John")
-                .middleName("Middle")
-                .lastName("Doe")
+                .firstName("Bedirhan")
+                .middleName("Can")
+                .lastName("Balcı")
                 .telephoneNumber("123456789")
                 .userType(UserType.CORPORATE)
                 .gender(com.patika.userservice.model.enums.Gender.MALE)
@@ -135,10 +135,10 @@ class UserServiceTest {
 
     @Test
     void testGetUserByEmail() {
-        when(userRepository.findByEmail("john.doe@example.com")).thenReturn(Optional.of(testUser));
-        UserResponse result = userService.getUserByEmail("john.doe@example.com");
+        when(userRepository.findByEmail("bedirhanbalci@outlook.com")).thenReturn(Optional.of(testUser));
+        UserResponse result = userService.getUserByEmail("bedirhanbalci@outlook.com");
         assertNotNull(result);
-        assertEquals("john.doe@example.com", result.getEmail());
+        assertEquals("bedirhanbalci@outlook.com", result.getEmail());
     }
 
     @Test
@@ -157,10 +157,10 @@ class UserServiceTest {
         testUser.setRoles(existingRoles);
 
         List<RoleType> rolesToAdd = Collections.singletonList(RoleType.ADMIN);
-        when(userRepository.findByEmail("john.doe@example.com")).thenReturn(Optional.of(testUser));
+        when(userRepository.findByEmail("bedirhanbalci@outlook.com")).thenReturn(Optional.of(testUser));
         when(roleRepository.findByRoleName(RoleType.ADMIN)).thenReturn(Optional.of(adminRole));
 
-        UserResponse result = userService.addUserRoles("john.doe@example.com", rolesToAdd);
+        UserResponse result = userService.addUserRoles("bedirhanbalci@outlook.com", rolesToAdd);
         assertNotNull(result);
         assertEquals(UserType.INDIVIDUAL, result.getUserType());
         verify(kafkaProducer, times(2)).sendLog(anyString());
@@ -176,10 +176,10 @@ class UserServiceTest {
         roleToDelete.setId(1L);
         roleToDelete.setRoleName(RoleType.USER);
 
-        when(userRepository.findByEmail("john.doe@example.com")).thenReturn(Optional.of(testUser));
+        when(userRepository.findByEmail("bedirhanbalci@outlook.com")).thenReturn(Optional.of(testUser));
         when(roleRepository.findByRoleName(RoleType.USER)).thenReturn(Optional.of(roleToDelete));
 
-        UserResponse result = userService.deleteUserRoles("john.doe@example.com", rolesToDelete);
+        UserResponse result = userService.deleteUserRoles("bedirhanbalci@outlook.com", rolesToDelete);
         assertNotNull(result);
         assertEquals(UserType.INDIVIDUAL, result.getUserType());
         verify(kafkaProducer, times(2)).sendLog(anyString());
@@ -193,7 +193,7 @@ class UserServiceTest {
 
         Map<String, User> result = userService.getAllUsersMap();
         assertNotNull(result);
-        assertTrue(result.containsKey("john.doe@example.com"));
+        assertTrue(result.containsKey("bedirhanbalci@outlook.com"));
     }
 
     @Test
@@ -211,12 +211,12 @@ class UserServiceTest {
         roles.add(new Role(2L, RoleType.ADMIN));
 
         User testUser = new User();
-        testUser.setEmail("john.doe@example.com");
+        testUser.setEmail("bedirhanbalci@outlook.com");
         testUser.setRoles(roles);
 
-        when(userRepository.findByEmail("john.doe@example.com")).thenReturn(Optional.of(testUser));
+        when(userRepository.findByEmail("bedirhanbalci@outlook.com")).thenReturn(Optional.of(testUser));
 
-        Set<Role> resultRoles = userService.getUserRoles("john.doe@example.com");
+        Set<Role> resultRoles = userService.getUserRoles("bedirhanbalci@outlook.com");
 
         assertNotNull(resultRoles);
         assertEquals(2, resultRoles.size());
