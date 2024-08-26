@@ -13,7 +13,7 @@ import com.patika.userservice.model.Role;
 import com.patika.userservice.model.User;
 import com.patika.userservice.model.enums.RoleType;
 import com.patika.userservice.producer.KafkaProducer;
-import com.patika.userservice.producer.RabbitMqProducer;
+import com.patika.userservice.producer.RabbitMQProducer;
 import com.patika.userservice.producer.dto.NotificationRequest;
 import com.patika.userservice.producer.dto.enums.NotificationType;
 import com.patika.userservice.repository.RoleRepository;
@@ -37,7 +37,7 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    private final RabbitMqProducer rabbitMqProducer;
+    private final RabbitMQProducer rabbitMqProducer;
 
     private final KafkaProducer kafkaProducer;
 
