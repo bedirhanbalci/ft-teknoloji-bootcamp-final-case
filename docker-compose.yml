@@ -48,10 +48,11 @@ services:
       - LANG=C.UTF-8
       - LANGUAGE=C.UTF-8
       - LC_ALL=C.UTF-8
-      - RABBITMQ_USER=admin
-      - RABBITMQ_PASSWORD=123456
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=123456
     image: rabbitmq:3.13-management
     command: rabbitmq-server
+
 
   mongodb-community-server:
     container_name: mongodb-container
