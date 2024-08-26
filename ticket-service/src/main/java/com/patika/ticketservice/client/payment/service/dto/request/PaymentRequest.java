@@ -1,10 +1,7 @@
 package com.patika.ticketservice.client.payment.service.dto.request;
 
 import com.patika.ticketservice.client.payment.service.dto.response.enums.PaymentType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -12,6 +9,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class PaymentRequest {
 
     private Long bookingId;
