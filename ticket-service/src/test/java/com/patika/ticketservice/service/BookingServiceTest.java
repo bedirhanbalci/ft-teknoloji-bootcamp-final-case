@@ -75,7 +75,7 @@ class BookingServiceTest {
         user.setUserType(UserType.INDIVIDUAL);
         user.setTelephoneNumber("1234567890");
         user.setReceiverId("receiverId");
-        user.setEmail("user@example.com");
+        user.setEmail("bedirhanbalci@outlook.com");
         return user;
     }
 
