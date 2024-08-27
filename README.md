@@ -29,32 +29,25 @@ Bu proje, kullanıcıların uçak ve otobüs bileti alabileceği bir online sat�
 - **Ödeme Yöntemleri:** Sadece kredi kartı ve havale/EFT ile ödeme kabul edilir.
 
 ## Kullanılan Teknolojiler
-- **Java 11**
+- **Java 21**
 - **Spring Boot**
 - **JUnit 5**
+- **Kafka**
 - **RabbitMQ**
-- **PostgreSQL / MySQL / MongoDB** (ihtiyaca göre)
+- **PostgreSQL / MongoDB**
 - **Redis**
+- **Elasticsearch**
 - **JWT Token**
-
-## Proje Değerlendirmesi
-- **Backend Doğruluğu:** Uygulama, belirtilen kurallara göre doğru çalışmalıdır. (25 Puan)
-- **Unit Test Kapsamı:** Unit test oranı paket ve class bazında en az %90 olmalıdır. (15 Puan)
-- **Mikroservis Mimarisine Uygunluk:** Mikroservis mimarisi ve teknolojileri doğru yansıtılmalıdır. (15 Puan)
-- **Veritabanı Kullanımı:** NoSQL veya RDBMS teknolojileri doğru kullanılmalıdır. (20 Puan)
-- **Loglama ve Hata Yönetimi:** Loglama ve exception handling mekanizmaları doğru kurulmalıdır. (10 Puan)
-- **Dökümantasyon:** Proje için Readme, Postman Collection, Diagram, Swagger dokümantasyonları hazırlanmalıdır. (5 Puan)
-- **Kod Kalitesi:** Kodun anlaşılır ve düzenli olması sağlanmalıdır (paket ve class yapısı, isimlendirmeler vb.). (10 Puan)
 
 ## Nasıl Kurulur?
 1. **Projeyi klonlayın:**
    ```bash
    git clone https://github.com/bedirhanbalci/ft-teknoloji-bootcamp-final-case.git
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Lisans
+Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
-## Contact
+## İletişim
 ### Bedirhan Balcı
 <a href="https://github.com/bedirhanbalci" target="_blank">
 <img  src=https://img.shields.io/badge/github-%2324292e.svg?&style=for-the-badge&logo=github&logoColor=white alt=github style="margin-bottom: 20px;" />
