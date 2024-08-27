@@ -1,90 +1,986 @@
 {
 	"info": {
-		"_postman_id": "d7071e56-a6b2-4178-bfb4-47b6354bbdbf",
+		"_postman_id": "c7ce7aba-6274-4bb8-8589-99b1b1aacc23",
 		"name": "Ticket Service Gateway API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "10295310"
+		"_exporter_id": "36963983"
 	},
 	"item": [
 		{
-			"name": "auth register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"email\": \"mbesel2005@gmail.com\",\n    \"password\": \"123456\",\n    \"firstname\": \"melih\",\n    \"lastname\": \"beşel\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "auth-service",
+			"item": [
+				{
+					"name": "auth register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"bedirhan@outlook.com\",\n    \"password\": \"123456\",\n    \"firstname\": \"bedirhan\",\n    \"lastname\": \"balcı\",\n    \"userType\": \"INDIVIDUAL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:9090/api/v1/auth/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"api",
-						"v1",
-						"auth",
-						"register"
-					]
+				{
+					"name": "auth login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"bedirhan@outlook.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "voyages",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
+			"name": "user-service",
+			"item": [
+				{
+					"name": "add role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"USER\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users/bedirhan@outlook.com/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"bedirhan@outlook.com",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"USER\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users/bedirhan@outlook.com/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"bedirhan@outlook.com",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"2\",\r\n    \"firstName\": \"bedir\",\r\n    \"middleName\": \"can\",\r\n    \"lastName\": \"balci\",\r\n    \"telephoneNumber\": \"1234567890\",\r\n    \"userType\": \"INDIVIDUAL\",\r\n    \"gender\": \"MALE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user role",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyMDY4NiwiZXhwIjoxNzI0ODA3MDg2fQ.X7SrFj1U4xXtqXKBfvXU6sR93FtKqxRmC3dYdhmk5fiLpjbXRiuy2ZJtpFTMeBHR69BntUSsZEbVVnz3fMBzhQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"2\",\r\n    \"firstName\": \"bedo\",\r\n    \"middleName\": \"can\",\r\n    \"lastName\": \"balci\",\r\n    \"telephoneNumber\": \"123456789\",\r\n    \"userType\": \"INDIVIDUAL\",\r\n    \"gender\": \"MALE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users/bedirhan@outlook.com/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"bedirhan@outlook.com",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by email",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyMDY4NiwiZXhwIjoxNzI0ODA3MDg2fQ.X7SrFj1U4xXtqXKBfvXU6sR93FtKqxRmC3dYdhmk5fiLpjbXRiuy2ZJtpFTMeBHR69BntUSsZEbVVnz3fMBzhQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"2\",\r\n    \"firstName\": \"bedo\",\r\n    \"middleName\": \"can\",\r\n    \"lastName\": \"balci\",\r\n    \"telephoneNumber\": \"123456789\",\r\n    \"userType\": \"INDIVIDUAL\",\r\n    \"gender\": \"MALE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users/email?email=bedirhan@outlook.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "bedirhan@outlook.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by email for auth",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users/auth/email?email=bedirhan@outlook.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"auth",
+								"email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "bedirhan@outlook.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyMDY4NiwiZXhwIjoxNzI0ODA3MDg2fQ.X7SrFj1U4xXtqXKBfvXU6sR93FtKqxRmC3dYdhmk5fiLpjbXRiuy2ZJtpFTMeBHR69BntUSsZEbVVnz3fMBzhQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"2\",\r\n    \"firstName\": \"bedo\",\r\n    \"middleName\": \"can\",\r\n    \"lastName\": \"balci\",\r\n    \"telephoneNumber\": \"123456789\",\r\n    \"userType\": \"INDIVIDUAL\",\r\n    \"gender\": \"MALE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users/id?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyMDY4NiwiZXhwIjoxNzI0ODA3MDg2fQ.X7SrFj1U4xXtqXKBfvXU6sR93FtKqxRmC3dYdhmk5fiLpjbXRiuy2ZJtpFTMeBHR69BntUSsZEbVVnz3fMBzhQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"2\",\r\n    \"firstName\": \"bedo\",\r\n    \"middleName\": \"can\",\r\n    \"lastName\": \"balci\",\r\n    \"telephoneNumber\": \"123456789\",\r\n    \"userType\": \"INDIVIDUAL\",\r\n    \"gender\": \"MALE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ticket-service",
+			"item": [
+				{
+					"name": "voyage",
+					"item": [
 						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlIjpbeyJpZCI6MSwicm9sZU5hbWUiOiJVU0VSIn0seyJpZCI6Miwicm9sZU5hbWUiOiJBRE1JTiJ9XSwiaWQiOjEsInN1YiI6Im1iZXNlbDIwMDVAZ21haWwuY29tIiwiaWF0IjoxNzI0NTYwNDY5LCJleHAiOjE3MjQ2NDY4Njl9.EfxxjQoz3WQNLy59qhU4Lrn0GL4TZ_-f6mSpfbjom3K0ooCrXQNEo5bwunX_gG22wxPel6aa2HS3Gc1cJ8k3iA",
-							"type": "string"
+							"name": "get voyages",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9090/api/v1/voyages/getVoyages?originCity=Istanbul&destinationCity=London&travelType=PLANE&voyageDateTime=2024-08-29",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"voyages",
+										"getVoyages"
+									],
+									"query": [
+										{
+											"key": "originCity",
+											"value": "Istanbul"
+										},
+										{
+											"key": "destinationCity",
+											"value": "London"
+										},
+										{
+											"key": "travelType",
+											"value": "PLANE"
+										},
+										{
+											"key": "voyageDateTime",
+											"value": "2024-08-29"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create voyage",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"originCity\": \"Istanbul\",\r\n    \"destinationCity\": \"London\",\r\n    \"voyageDateTime\": \"2024-08-29\",\r\n    \"travelType\": \"PLANE\",\r\n    \"price\": \"2500\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9090/api/v1/voyages",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"voyages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deactivate voyage",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"originCity\": \"Istanbul\",\r\n    \"destinationCity\": \"Ankara\",\r\n    \"voyageDateTime\": \"2024-06-07\",\r\n    \"travelType\": \"PLANE\",\r\n    \"price\": \"1500\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9090/api/v1/voyages/deactivate/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"voyages",
+										"deactivate",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete voyage",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"originCity\": \"Istanbul\",\r\n    \"destinationCity\": \"Ankara\",\r\n    \"voyageDateTime\": \"2024-06-07\",\r\n    \"travelType\": \"PLANE\",\r\n    \"price\": \"1500\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9090/api/v1/voyages/delete/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"voyages",
+										"delete",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get total ticket numbers sold",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9090/api/v1/voyages/totalTicketsSold/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"voyages",
+										"totalTicketsSold",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get total earnings of voyage",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9090/api/v1/voyages/totalEarnings/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"voyages",
+										"totalEarnings",
+										"2"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:9090/api/v1/voyages?originCity=istanbul&destinationCity=roma&travelType=PLANE&voyageDateTime=2024-08-24",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"api",
-						"v1",
-						"voyages"
-					],
-					"query": [
+				{
+					"name": "ticket",
+					"item": [
 						{
-							"key": "originCity",
-							"value": "istanbul"
+							"name": "create ticket",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"citizenshipNumber\": \"123456789\",\r\n    \"passengerFirstName\": \"bedirhan\",\r\n    \"passengerMiddleName\": \"can\",\r\n    \"passengerLastName\": \"balci\",\r\n    \"gender\": \"MALE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9090/api/v1/tickets/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"tickets",
+										"2"
+									]
+								}
+							},
+							"response": []
 						},
 						{
-							"key": "destinationCity",
-							"value": "roma"
+							"name": "update ticket",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"citizenshipNumber\": \"12345678\",\r\n    \"passengerFirstName\": \"emirhan\",\r\n    \"passengerMiddleName\": \"can\",\r\n    \"passengerLastName\": \"balci\",\r\n    \"gender\": \"MALE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9090/api/v1/tickets/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"tickets",
+										"1"
+									]
+								}
+							},
+							"response": []
 						},
 						{
-							"key": "travelType",
-							"value": "PLANE"
+							"name": "get ticket by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9090/api/v1/tickets/byId/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"tickets",
+										"byId",
+										"1"
+									]
+								}
+							},
+							"response": []
 						},
 						{
-							"key": "voyageDateTime",
-							"value": "2024-08-24"
+							"name": "get all by email",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9090/api/v1/tickets/byEmail/bedirhan@outlook.com",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"tickets",
+										"byEmail",
+										"bedirhan@outlook.com"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete ticket by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9090/api/v1/tickets/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"tickets",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "booking",
+					"item": [
+						{
+							"name": "create booking",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"bookingUserId\": \"2\",\r\n    \"bookingUserEmail\": \"bedirhan@outlook.com\",\r\n    \"bookingTicketRequestList\": [\r\n        {\r\n            \"citizenshipNumber\": \"12345678\",\r\n            \"passengerFirstName\": \"bedirhan\",\r\n            \"passengerMiddleName\": \"can\",\r\n            \"passengerLastName\": \"balci\",\r\n            \"gender\": \"MALE\"\r\n        }\r\n    ],\r\n    \"bookingOriginCity\": \"Istanbul\",\r\n    \"bookingDestinationCity\": \"London\",\r\n    \"bookingVoyageDateTime\": \"2024-08-29\",\r\n    \"bookingTravelType\": \"PLANE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9090/api/v1/bookings",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"bookings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get booking by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9090/api/v1/bookings/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"bookings",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "payment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W3siaWQiOjEsInJvbGVOYW1lIjoiVVNFUiJ9LHsiaWQiOjIsInJvbGVOYW1lIjoiQURNSU4ifV0sImlkIjoyLCJzdWIiOiJiZWRpcmhhbkBvdXRsb29rLmNvbSIsImlhdCI6MTcyNDcyNDE1NiwiZXhwIjoxNzI0ODEwNTU2fQ.vUh9UKs6JCpXkx61-z-H138U7VN5oc1vm7i32fIsPnlQmQMu4pqBoLO0ahNyhIhoagxgQt23UwStf4_LLlk20Q",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"bookingId\": 1,\r\n    \"amount\": 2500,\r\n    \"paymentType\": \"CREDIT_CARD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9090/api/v1/bookings/payment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9090",
+									"path": [
+										"api",
+										"v1",
+										"bookings",
+										"payment"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
