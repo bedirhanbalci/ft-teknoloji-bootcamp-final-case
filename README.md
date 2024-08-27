@@ -1,12 +1,10 @@
 # Final Projesi - FT Teknoloji Java Spring Boot Bootcamp
 
-![Ticket_Service_Diagram](https://github.com/user-attachments/assets/ee6c8f34-a4d2-4b68-a018-199e64ca3bd3)
-
-
-# Online Uçak ve Otobüs Bileti Satış Uygulaması
-
-## Proje Açıklaması
+## Online Uçak ve Otobüs Bileti Satış Uygulaması
 Bu proje, kullanıcıların uçak ve otobüs bileti alabileceği bir online satış platformu geliştirilmesi üzerine odaklanmıştır. Uygulama, kullanıcıların sisteme kayıt olup giriş yapabilmelerini, bilet aramalarını ve satın almalarını sağlar. Ayrıca, admin kullanıcılarının sefer ekleme, iptal etme ve satış raporlarını görüntüleyebilme yetkileri vardır.
+
+## Proje Şeması
+![Ticket_Service_Diagram](https://github.com/user-attachments/assets/ee6c8f34-a4d2-4b68-a018-199e64ca3bd3)
 
 ## Gereksinimler
 
@@ -52,6 +50,9 @@ Bu proje, kullanıcıların uçak ve otobüs bileti alabileceği bir online sat�
 1. **Projeyi klonlayın:**
    ```bash
    git clone https://github.com/bedirhanbalci/ft-teknoloji-bootcamp-final-case.git
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 ### Bedirhan Balcı
