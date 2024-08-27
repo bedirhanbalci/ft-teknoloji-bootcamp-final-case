@@ -33,7 +33,7 @@ class AuthServiceTest {
     @Test
     void it_should_register_user_successfully() {
         // given
-        AuthRegisterRequest registerRequest = new AuthRegisterRequest("test@example.com", "password", "John", "Doe", UserType.INDIVIDUAL);
+        AuthRegisterRequest registerRequest = new AuthRegisterRequest("bedirhanbalci@outlook.com", "password", "Bedirhan", "Balcı", UserType.INDIVIDUAL);
         UserVO userVO = new UserVO(); // setup UserVO as needed
         String accessToken = "accessToken";
         String refreshToken = "refreshToken";
@@ -58,7 +58,7 @@ class AuthServiceTest {
     @Test
     void it_should_fail_to_register_user_when_user_client_service_fails() {
         // given
-        AuthRegisterRequest registerRequest = new AuthRegisterRequest("test@example.com", "password", "John", "Doe", UserType.INDIVIDUAL);
+        AuthRegisterRequest registerRequest = new AuthRegisterRequest("bedirhanbalci@outlook.com", "password", "Bedirhan", "Balcı", UserType.INDIVIDUAL);
 
         when(userClientService.createUserForAuth(registerRequest)).thenReturn(null);
 
@@ -76,7 +76,7 @@ class AuthServiceTest {
     @Test
     void it_should_login_user_successfully() {
         // given
-        AuthLoginRequest loginRequest = new AuthLoginRequest("test@example.com", "password");
+        AuthLoginRequest loginRequest = new AuthLoginRequest("bedirhanbalci@outlook.com", "password");
         UserVO userVO = new UserVO(); // setup UserVO as needed
         String accessToken = "accessToken";
         String refreshToken = "refreshToken";
@@ -101,7 +101,7 @@ class AuthServiceTest {
     @Test
     void it_should_fail_to_login_user_when_user_client_service_fails() {
         // given
-        AuthLoginRequest loginRequest = new AuthLoginRequest("test@example.com", "password");
+        AuthLoginRequest loginRequest = new AuthLoginRequest("bedirhanbalci@outlook.com", "password");
 
         when(userClientService.validateUserForAuth(loginRequest)).thenReturn(null);
 
